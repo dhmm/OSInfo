@@ -1,0 +1,54 @@
+<div class="tab-pane fade show active" id="cpus" role="tabpanel" aria-labelledby="cpus-tab">
+        <% data.cpus.forEach( (obj) => { 
+            var title  = obj[0];
+            var values = obj[1];                      
+        %> 
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <u>Core : <%=parseInt(title)+1;%></u>              
+              <%= typeof(values) !== 'object' ? ' : '+values : '' %>
+            </h5>               
+            <%             
+            if(typeof(values) === 'object' ) { 
+              var objValues = Object.entries(values); %>
+              <p class="card-text">                    
+                <ul>
+                <% 
+                objValues.forEach( (obj) => {
+                  var key = obj[0];
+                  var val = obj[1];
+
+                  if(typeof(val) !== 'object') {
+                    %>
+                    <li><%=key+' : '+val%></li>
+                    <%
+                  }
+                  else
+                  {
+                    %>
+                    <li><%=key%> : 
+                        <ul>
+                        <%
+                        var subObjValues = Object.entries(val); 
+                        subObjValues.forEach( (obj) => {
+                            var subKey = obj[0];
+                            var subVal = obj[1];
+                        %>
+                            <li><%=subKey+' : '+subVal%></li>
+                        <%
+                        });%>
+                        </ul>
+                    </li>
+                    <%
+                  }
+                 }); %>
+                </ul>                    
+              </p>  
+            <% } %>  
+            
+          </div>
+        </div>
+        <%});%>
+
+      </div>
