@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <% include ../partials/head %>
+
+<body>
+  <div class="container">
+      <div class="row" style="margin-top:20px;">
+          <div class="col-sm">
+            <h4>OS Info</h4>
+          </div>
+      </div>
+    <div class="row" style="margin-top:20px;">
+      <div class="col-sm">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <% include ../partials/tab_headers %>
+        </ul>
+
+        <div class="tab-content" id="myTabContent" style="padding:5px;">
+          <% include ../tabs/osconstants %>                  
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% include ../partials/page_end_js %>
+</body>
+
+</html>

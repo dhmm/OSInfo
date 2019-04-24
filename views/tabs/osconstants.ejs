@@ -1,0 +1,33 @@
+<div class="tab-pane fade show active" id="osconstants" role="tabpanel" aria-labelledby="osconstants-tab">
+        <% data.constants.forEach( (obj) => { 
+            var title  = obj[0];
+            var values = obj[1];
+        %> 
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">
+              <u><%=title%></u>
+              <%= typeof(values) !== 'object' ? ' : '+values : '' %>
+            </h5>               
+            <% 
+            if(typeof(values) === 'object' ) { 
+              var objValues = Object.entries(values); %>
+              <p class="card-text">                    
+                <ul>
+                <% 
+                objValues.forEach( (obj) => {
+                  var key = obj[0];
+                  var val = obj[1];
+                %>
+                  <li><%=key+' : '+val%></li>
+                <%
+                 }); %>
+                </ul>                    
+              </p>  
+            <% } %>  
+            
+          </div>
+        </div>
+        <%});%>
+
+      </div>

@@ -1,0 +1,13 @@
+<%
+    function showHeader(id , label , active=null) {
+%>        
+        <li class="nav-item">
+                <a class="nav-link <%=active%>>" id="<%=id%>-tab" data-toggle="tab" href="#<%=id%>" role="tab" aria-controls="<%=id%>"
+                  aria-selected="true"><%=label%></a>
+        </li> 
+<%
+    }
+%>
+<%
+showHeader('osconstants' , 'Os Constants' , 'active');
+%>
