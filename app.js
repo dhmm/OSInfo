@@ -12,8 +12,11 @@ app.use(express.static(path.join(ROOT_DIR + '/public')));
 router.get('/' ,(req,res) => {       
     var data = new Object ({
         constants: Object.entries(os.constants) ,
-        cpus : Object.entries(os.cpus())
+        cpus : Object.entries(os.cpus()),
+        networkInterfaces : Object.entries(os.networkInterfaces())
     });    
+
+    console.log(Object.entries(os.networkInterfaces()));
     res.render('pages/index' , { data: data } );
 });
 
